@@ -1,0 +1,8 @@
+encoding: UTF-8
+kramdown:
+  input: GFM
+  hard_wrap: false
+future: true
+jailed: true
+theme: jekyll-theme-midnight
+gfm_quirks: paragraph_end
