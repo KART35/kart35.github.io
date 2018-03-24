@@ -1,7 +1,6 @@
 
 
     <link rel="stylesheet" href="{{ '/assets/css/paginate-style.css?v=' | append: site.github.build_revision | relative_url }}">
-
       <div id="header">
         <nav>
           {% if site.show_downloads %}
@@ -11,9 +10,10 @@
           {% endif %}
         </nav>
       </div>
-
     <div class="paginate-entry">
       <section class="paginate-entry">
+        <!-- begin content default -->
         {{ content }}
+        <!-- end content default -->
       </section>
     </div>
