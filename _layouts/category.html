@@ -1,0 +1,10 @@
+---
+layout: default-with-head
+---
+
+{% for post in site.categories[page.category]%}
+<li>
+  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+</li>
+{% endfor %}

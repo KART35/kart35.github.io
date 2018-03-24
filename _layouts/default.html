@@ -1,0 +1,19 @@
+
+
+    <link rel="stylesheet" href="{{ '/assets/css/paginate-style.css?v=' | append: site.github.build_revision | relative_url }}">
+
+      <div id="header">
+        <nav>
+          {% if site.show_downloads %}
+            <li class="downloads"><a href="{{ site.github.zip_url }}">ZIP</a></li>
+            <li class="downloads"><a href="{{ site.github.tar_url }}">TAR</a></li>
+            <li class="title">DOWNLOADS</li>
+          {% endif %}
+        </nav>
+      </div>
+
+    <div class="paginate-entry">
+      <section class="paginate-entry">
+        {{ content }}
+      </section>
+    </div>
