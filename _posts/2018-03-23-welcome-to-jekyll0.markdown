@@ -1,5 +1,5 @@
 ---
-layout: post-with-nav
+layout: post
 title:  "Welcome to Jekyll2!"
 date:   2018-03-23 20:22:57 -0700
 categories: lab update
