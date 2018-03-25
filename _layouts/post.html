@@ -1,22 +1,19 @@
 ---
-layout: default
+layout: default-with-head
 ---
 <link rel="stylesheet" href="{{ '/assets/css/navi.css?v=' | append: site.github.build_revision | relative_url }}">
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {%- endif -%}</p>
-  </header>
-  <div class="post-content e-content" itemprop="articleBody">
-    <!-- begin content post -->
+<article>
+  <!-- begin content post-with-nav -->
     {{ content }}
-    <!-- end content post -->
+  <!-- end content post-with-nav -->
+  <div class="PageNav">
+    {% if page.previous.url %}
+      <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+    {% else %}
+    <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+    {% endif %}
+    {% if page.next.url %}
+      <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+    {% endif %}
   </div>
 </article>
