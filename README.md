@@ -6,3 +6,5 @@ what's in the Lab:
 - pictures?
 
 - How to get OpenManage working with ESXi
+- IPMItool
+-
