@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>We Have A Fail! | Kart35’s Blog</title>
+<meta name="generator" content="Jekyll v3.6.2" />
+<meta property="og:title" content="We Have A Fail!" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="If you see this when running ipmitool Could not open device at /dev/ipmi0 or /dev/ipmi/0 or /dev/ipmidev/0: No such file or directory" />
+<meta property="og:description" content="If you see this when running ipmitool Could not open device at /dev/ipmi0 or /dev/ipmi/0 or /dev/ipmidev/0: No such file or directory" />
+<link rel="canonical" href="http://localhost:4000/lab/ipmi/fail/2018/03/25/We-Have-A-Fail.html" />
+<meta property="og:url" content="http://localhost:4000/lab/ipmi/fail/2018/03/25/We-Have-A-Fail.html" />
+<meta property="og:site_name" content="Kart35’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-25T22:48:00-07:00" />
+<script type="application/ld+json">
+{"description":"If you see this when running ipmitool Could not open device at /dev/ipmi0 or /dev/ipmi/0 or /dev/ipmidev/0: No such file or directory","@type":"BlogPosting","url":"http://localhost:4000/lab/ipmi/fail/2018/03/25/We-Have-A-Fail.html","headline":"We Have A Fail!","dateModified":"2018-03-25T22:48:00-07:00","datePublished":"2018-03-25T22:48:00-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/lab/ipmi/fail/2018/03/25/We-Have-A-Fail.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=f012241de3040734e57ebba4c6c35aa67c8b070b">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="/assets/js/respond.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 8]>
+  <link rel="stylesheet" href="/assets/css/ie.css">
+  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+</head>
+
+  <body>
+ <div id="header">
+  <nav style="display: inherit;">
+    
+    <li  class="downloads"><a href="/">Home</a></li>
+    <li class="downloads"><a href="/blog">Blog</a></li>
+  </nav>
+</div>
+<!-- end navbar -->
+
+    <div class="wrapper">
+      <section>
+        <div id="title">
+  <h1>Kart35's Blog</h1>
+  <p>Labbing and things.</p>
+  <hr>
+</div>
+
+ <!-- begin content default-with-head -->
+        <link rel="stylesheet" href="/assets/css/navi.css?v=f012241de3040734e57ebba4c6c35aa67c8b070b">
+<article>
+  <!-- begin content post-with-nav -->
+    <p>If you see this when running <code class="highlighter-rouge">ipmitool</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Could not open device at /dev/ipmi0 or /dev/ipmi/0 or /dev/ipmidev/0: No such file or directory
+</code></pre></div></div>
+
+<p>Yet you ran it as root, <code class="highlighter-rouge">/dev/ipmi0</code> exists, and <code class="highlighter-rouge">lsmod</code> shows all the relevant kernel modules are loaded. Does <code class="highlighter-rouge">dmesg | grep 'ipmi_si'</code> return something like this?</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[   11.357376] ipmi_si IPI0001:00: ipmi_si: probing via ACPI
+[   11.357400] ipmi_si IPI0001:00: [io  0x0ca2] regsize 1 spacing 1 irq 0
+[   11.357402] ipmi_si: Adding ACPI-specified kcs state machine
+[   11.357450] ipmi_si: Trying ACPI-specified kcs state machine at i/o address 0xca2, slave address 0x0, irq 0
+[   67.052748] ipmi_si: There appears to be no BMC at this location
+</code></pre></div></div>
+
+<p>If so, shut down the server. Unplug the server. Wait 30 seconds. Plug it back in. Boot the server.</p>
+
+<p>It will work. This took far too long to figure out.</p>
+
+  <!-- end content post-with-nav -->
+  <div class="PageNav">
+  
+    <a class="prev" href="/lab/backup-exec/2018/03/25/How-I-Started.html">&laquo; How I Started</a>
+  
+  
+</div>
+
+</article>
+
+ <!-- end content default-with-head -->
+         <div id="footer">
+  <hr>
+  <span class="credits left">Project maintained by <a href="http://github.com/KART35">KART35</a></span>
+  <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+</div>
+
+      </section>
+    </div>
+    
+
+  </body>
+</html>
