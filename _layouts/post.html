@@ -1,10 +1,11 @@
 ---
 layout: default-with-head
 ---
+<!-- begin content post -->
 <link rel="stylesheet" href="{{ '/assets/css/navi.css?v=' | append: site.github.build_revision | relative_url }}">
 <article>
-  <!-- begin content post-with-nav -->
+  {% include post-header.html %}
     {{ content }}
-  <!-- end content post-with-nav -->
   {% include post-pagenav.html %}
 </article>
+<!-- end content post -->
